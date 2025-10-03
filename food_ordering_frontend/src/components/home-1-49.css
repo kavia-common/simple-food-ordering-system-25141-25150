@@ -54,13 +54,17 @@
   --radius-20: 20px;
   --radius-35: 35px;
 
-  /* Ocean Professional theme (non-intrusive; only used if not affecting pixel-perfect visuals) */
+  /* Ocean Professional theme */
   --theme-primary: #2563EB;
   --theme-success: #F59E0B;
   --theme-error: #EF4444;
   --theme-bg: #f9fafb;
   --theme-surface: #ffffff;
   --theme-text: #111827;
+
+  /* Responsive design canvas variables */
+  --design-width: 430;   /* matches .screen width in px */
+  --design-height: 932;  /* matches .screen height in px */
 }
 
 /* Screen container - exact dimensions and base background */
@@ -69,6 +73,29 @@ html, body {
   padding: 0;
   background: var(--color-ffffff);
 }
+
+/* Responsive wrapper and canvas:
+   - The wrapper controls centering and scaling.
+   - The canvas holds the pixel-perfect .screen.
+*/
+.home149-responsive {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;       /* Prevent horizontal scroll on reduced widths */
+  background: transparent;  /* Can be set via media queries for larger screens */
+}
+
+.home149-canvas {
+  position: relative;
+  width: calc(var(--design-width) * 1px);
+  height: calc(var(--design-height) * 1px);
+  margin: 0 auto;           /* centered by default when space allows */
+  transform-origin: top left;
+  pointer-events: auto;     /* ensure interactions work when scaled */
+}
+
+/* Screen root (unchanged pixel-perfect base) */
 .screen {
   position: relative;
   width: 430px;
@@ -486,4 +513,53 @@ html, body {
 .card__fav:focus {
   outline: 2px solid var(--theme-primary);
   outline-offset: 2px;
+}
+
+/* -------------------- Responsive rules -------------------- */
+
+/* Images safeguard */
+.home149-responsive img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Scale down when viewport width is smaller than the design width.
+   Scale factor = 100vw / design width (px).
+   Maintain canvas height for scrollability by setting wrapper height accordingly.
+*/
+@media (max-width: 430px) {
+  .home149-responsive {
+    background: var(--color-ffffff);
+  }
+  .home149-canvas {
+    /* compute scale based on viewport width */
+    --scale: calc(100vw / (var(--design-width) * 1px));
+    transform: scale(var(--scale));
+    /* Height of the scaled canvas to allow vertical scrolling without extra whitespace */
+    height: calc(var(--design-height) * 1px);
+    /* The wrapper should take the scaled height to avoid extra whitespace below */
+    margin: 0;
+  }
+  /* Set a min-height on the wrapper equal to scaled canvas height */
+  .home149-responsive {
+    min-height: calc((var(--design-height) * 1px) * (100vw / (var(--design-width) * 1px)));
+  }
+}
+
+/* Tablet and up: center canvas and apply subtle outer background */
+@media (min-width: 768px) {
+  .home149-responsive {
+    background: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(249,250,251,1));
+    padding: 24px 0;
+  }
+  .home149-canvas {
+    margin: 0 auto;
+  }
+}
+
+/* Desktop and larger: increase outer spacing only (do not affect canvas size) */
+@media (min-width: 1024px) {
+  .home149-responsive {
+    padding: 48px 0;
+  }
 }
