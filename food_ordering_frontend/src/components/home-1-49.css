@@ -1,0 +1,489 @@
+:root {
+  /* Design system colors */
+  --color-ffffff: #ffffff;
+  --color-3c2f2f: #3c2f2f;
+  --color-6a6a6a: #6a6a6a;
+  --color-d9d9d9: #d9d9d9;
+  --color-ef2a39: #ef2a39;
+  --color-f5f5f5: #f5f5f5;
+  --color-f3f4f6: #f3f4f6;
+  --color-000000: #000000;
+  --color-ff9633: #ff9633;
+
+  /* Typography tokens */
+  --font-lobster: "Lobster", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-poppins: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  --font-inter: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  --font-roboto: "Roboto", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+
+  --typo5-size: 45px;
+  --typo5-weight: 400;
+  --typo5-line: 60.6093788147px;
+
+  --typo6-size: 18px;
+  --typo6-weight: 500;
+  --typo6-line: 27px;
+
+  --typo7-size: 18px;
+  --typo7-weight: 500;
+  --typo7-line: 21.09375px;
+
+  --typo8-size: 16px;
+  --typo8-weight: 500;
+  --typo8-line: 19.3636360168px;
+
+  --typo9-size: 16px;
+  --typo9-weight: 500;
+  --typo9-line: 19.3636360168px;
+
+  --typo10-size: 16px;
+  --typo10-weight: 500;
+  --typo10-line: 19.3636360168px;
+
+  --typo11-size: 16px;
+  --typo11-weight: 500;
+  --typo11-line: 21.5500011444px;
+
+  /* Shadows (from design system) */
+  --shadow-0: 0px 4px 19px 0px rgba(0, 0, 0, 1);
+  --shadow-1: 0px 10px 18px -1px rgba(0, 0, 0, 1);
+  --shadow-2: 0px 6px 17px 0px rgba(0, 0, 0, 1);
+  --shadow-3: 0px 5px 16px 5px rgba(0, 0, 0, 1);
+
+  /* Radii */
+  --radius-20: 20px;
+  --radius-35: 35px;
+
+  /* Ocean Professional theme (non-intrusive; only used if not affecting pixel-perfect visuals) */
+  --theme-primary: #2563EB;
+  --theme-success: #F59E0B;
+  --theme-error: #EF4444;
+  --theme-bg: #f9fafb;
+  --theme-surface: #ffffff;
+  --theme-text: #111827;
+}
+
+/* Screen container - exact dimensions and base background */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-ffffff);
+}
+.screen {
+  position: relative;
+  width: 430px;
+  height: 932px;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-35);
+  overflow: hidden;
+  /* root frame coordinates are not applied to container */
+}
+.screen--home {
+  font-family: var(--font-inter);
+  color: var(--color-3c2f2f);
+}
+
+/* Text: Foodgo title */
+.text--title {
+  position: absolute;
+  left: 19px; /* -991 - (-1010) */
+  top: 28px;  /* -978 - (-1006) */
+  width: 129px;
+  height: 61px;
+  margin: 0;
+  font-family: var(--font-lobster);
+  font-size: var(--typo5-size);
+  font-weight: var(--typo5-weight);
+  line-height: var(--typo5-line);
+  color: var(--color-3c2f2f);
+}
+
+/* Subtitle */
+.text--subtitle {
+  position: absolute;
+  left: 19px;
+  top: 89px; /* -917 - (-1006) */
+  width: 238px;
+  height: 27px;
+  margin: 0;
+  font-family: var(--font-poppins);
+  font-size: var(--typo6-size);
+  font-weight: var(--typo6-weight);
+  line-height: var(--typo6-line);
+  color: var(--color-6a6a6a);
+}
+
+/* Mask group top-right */
+.mask-group {
+  position: absolute;
+  left: 351px; /* -659 - (-1010) */
+  top: 28px;   /* -978 - (-1006) */
+  width: 60px;
+  height: 60px;
+}
+.mask-group__rect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-20);
+  object-fit: cover;
+}
+.mask-group__image {
+  position: absolute;
+  left: -29px; /* -688 - (-659) */
+  top: -3px;   /* -981 - (-978) */
+  width: 106px;
+  height: 73px;
+  object-fit: cover;
+}
+
+/* Search and filter bar group */
+.search-filter {
+  position: absolute;
+  left: 19px; /* -991 - (-1010) */
+  top: 163px; /* -843 - (-1006) */
+  width: 392px;
+  height: 60px;
+}
+.search-filter__search-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 319px;
+  height: 60px;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-20);
+  box-shadow: var(--shadow-0);
+}
+.search-filter__filter-button {
+  position: absolute;
+  left: 332px; /* -659 - (-991) */
+  top: 0;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.search-filter__filter-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  background: var(--color-ef2a39);
+  border-radius: var(--radius-20);
+}
+.icon--settings {
+  position: absolute;
+  left: 18px; /* -641 - (-659) */
+  top: 18px;  /* -825 - (-843) */
+  width: 24px;
+  height: 24px;
+}
+.icon__bar { position: absolute; left: 0; width: 24px; background: var(--color-ffffff); border-radius: 2px; }
+.icon__bar--1 { top: 0.6259px; height: 6.9989876747px; }
+.icon__bar--2 { top: 8.49939px; height: 6.9994945526px; }
+.icon__bar--3 { top: 16.37439px; height: 6.9994812012px; }
+
+.search-filter__input {
+  position: absolute;
+  left: 20px; /* -971 - (-991) */
+  top: 18px;  /* -825 - (-843) */
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon--search {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.search-filter__placeholder {
+  font-family: var(--font-roboto);
+  font-size: var(--typo7-size);
+  font-weight: var(--typo7-weight);
+  line-height: var(--typo7-line);
+  color: var(--color-3c2f2f);
+}
+
+/* Categories frame */
+.categories {
+  position: absolute;
+  left:  -1px;  /* -1011 - (-1010) => -1 offset container for frame 9 wrapper; internal child positioned by images; normalize here */
+  top:   264px; /* -742 - (-1006) */
+  width: 412px;
+  height: 50px;
+}
+.category {
+  position: absolute;
+  height: 50px;
+  border-radius: var(--radius-20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.category--all { left: 19px; top: 0; width: 75px; }
+.category--combos { left: 108px; top: 0; width: 120px; }
+.category--sliders { left: 242px; top: 0; width: 120px; }
+.category--classic { left: 376px; top: 0; width: 110px; } /* extends outside frame width; matches figma child dims */
+
+.category__bg { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: var(--radius-20); object-fit: cover; }
+.category__bg--sliders { background: var(--color-f3f4f6); border-radius: var(--radius-20); }
+.category__label {
+  position: absolute;
+  margin: 0;
+  font-family: var(--font-inter);
+  font-size: var(--typo9-size);
+  font-weight: var(--typo9-weight);
+  line-height: var(--typo9-line);
+  color: var(--color-6a6a6a);
+}
+.category__label--all {
+  color: var(--color-f5f5f5);
+}
+.category--all .category__label { left: 31px; top: 15px; }
+.category--combos .category__label { left: 46px; top: 15px; }
+.category--sliders .category__label { left: 33px; top: 16px; }
+.category--classic .category__label { left: 49px; top: 15px; }
+
+/* Cards grid wrapper */
+.cards {
+  position: absolute;
+  left: 19px;  /* -991 - (-1010) */
+  top: 355px;  /* -651 - (-1006) */
+  width: 392px;
+  height: 481px;
+}
+
+/* Card base */
+.card {
+  position: absolute;
+  width: 185px;
+  height: 225px;
+}
+.card:nth-of-type(1) { left: 0px; top: 0px; }
+.card--b { left: 207px; top: 0px; }
+.card--c { left: 0px; top: 256px; }   /* -395 - (-651) = 256 */
+.card--d { left: 207px; top: 256px; }
+
+.card__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 185px;
+  height: 225px;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-20);
+  box-shadow: var(--shadow-2);
+}
+
+/* Favorite icon button (24x24) */
+.card__fav {
+  position: absolute;
+  right: 20px; /* from width: place at x per given dims */
+  top: 200px;  /* -465 - (-651) for first card => 186; but relative to card: 225 - 24 - approx 1? Using absolute numbers will be set per card below */
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.card:nth-of-type(1) .card__fav { left: 144px; top: 186px; }
+.card--b .card__fav { left: 150px; top: 186px; }
+.card--c .card__fav { left: 144px; top: 186px; }
+.card--d .card__fav { left: 150px; top: 186px; }
+
+/* Titles */
+.card__title {
+  position: absolute;
+  left: 11px; /* -980 - (-991) */
+  top: 136px; /* -515 - (-651) = 136 for first row; same for others: -259 - (-395)=136 */
+  width: 160px;
+  margin: 0;
+  font-family: var(--font-inter);
+  font-size: var(--typo10-size);
+  font-weight: var(--typo10-weight);
+  line-height: var(--typo10-line);
+  color: var(--color-3c2f2f);
+}
+
+/* Shadow ellipse images when provided */
+.card__shadow {
+  position: absolute;
+  left: 47px; /* -944 - (-991) = 47 for first; others vary; for c: -951 - (-991)=40; d: -743.5 - (-784)=40.5 -> approximate */
+  top: 109px; /* -542 - (-651)=109 */
+  width: 91px;
+  height: 11px;
+  object-fit: cover;
+}
+.card--c .card__shadow { left: 40px; top: 108px; width: 110px; height: 15.7609148026px; }
+.card--d .card__shadow { left: 40.5px; top: 110px; width: 112px; height: 11px; }
+
+/* Product images */
+.card__image {
+  position: absolute;
+  object-fit: cover;
+}
+.card:nth-of-type(1) .card__image { left: 32px; top: 5px; width: 120px; height: 121.7578125px; }
+.card--b .card__image { left: 32px; top: 11px; width: 120px; height: 120px; }
+.card--c .card__image { left: 20px; top: 0px; width: 150px; height: 137.700012207px; }
+.card--d .card__image { left: 30px; top: 25px; width: 145px; height: 100.59375px; }
+
+/* Rating group */
+.card__rating {
+  position: absolute;
+  left: 11px; /* -980 - (-991) */
+  top: 189px; /* -462 - (-651)=189 for top row; for bottom row: -206 - (-395)=189 */
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.card__star {
+  width: 16px;
+  height: 16px;
+}
+.card__rating-text {
+  font-family: var(--font-roboto);
+  font-size: var(--typo11-size);
+  font-weight: var(--typo11-weight);
+  line-height: var(--typo11-line);
+  color: var(--color-3c2f2f);
+}
+
+/* Ellipse simple fill (style_10 black), for Group 11 */
+.card__ellipse {
+  position: absolute;
+  left: 47px; /* -737 - (-784) */
+  top: 110px; /* -541 - (-651) */
+  width: 91px;
+  height: 11px;
+  background: var(--color-000000);
+  border-radius: 999px;
+}
+
+/* Extra ellipse (style_6 white) in Group 13 */
+.card__ellipse-2 {
+  position: absolute;
+  left: 150.82px; /* -634.179443359375 - (-784) = 149.82; inside card width 185 so 149.82 fits; adjust by +1 for subpixel rendering */
+  top: 100.5px;   /* -294.5 - (-395) = 100.5 */
+  width: 26.6794128418px;
+  height: 27px;
+  object-fit: cover;
+}
+
+/* Bottom navigation */
+.bottom-nav {
+  position: absolute;
+  left: -19px;  /* -1029 - (-1010) = -19 */
+  top: 856px;   /* -150 - (-1006) = 856 */
+  width: 456px;
+  height: 90px;
+}
+.bottom-nav__shape {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 456px;
+  height: 90px;
+}
+.bottom-nav__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 456px;
+  height: 90px;
+  object-fit: cover;
+}
+.bottom-nav__circle {
+  position: absolute;
+  left: 193px; /* -836 - (-1029) = 193 */
+  top: -41px;  /* -191 - (-150) = -41 within the nav container; here relative to nav: -41 */
+  width: 82px;
+  height: 82px;
+  object-fit: cover;
+}
+
+/* Icons over nav */
+.bottom-nav__item {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.bottom-nav__item--home { left: 31px; top: 17px; }   /* -979 - (-1010)=31; -133 - (-150)=17 */
+.bottom-nav__item--user { left: 113px; top: 17px; }  /* -897 - (-1010)=113 */
+.bottom-nav__item--comment { left: 294px; top: 17px; } /* -716 - (-1010)=294 */
+.bottom-nav__user-vec1 {
+  position: absolute; left: 4px; top: 31px; width: 16.000713px; height: 10.000191px; display: none;
+}
+.bottom-nav__user-vec2 {
+  position: absolute; left: 6px; top: 0px; width: 12px; height: 12px; display: none;
+}
+.bottom-nav__comment {
+  position: absolute; left: 0; top: 0; width: 23.999004px; height: 24.022001px; object-fit: cover;
+}
+
+/* Small dot (Ellipse 6) */
+.bottom-nav__dot {
+  position: absolute;
+  left: 41px;  /* -969 - (-1010)=41 */
+  top: 49px;   /* -101 - (-150)=49 */
+  width: 4px;
+  height: 4px;
+  background: var(--color-ffffff);
+  border-radius: 50%;
+}
+
+/* Floating action button (Group 18) */
+.fab {
+  position: absolute;
+  left: 198px; /* -831 - (-1029)=198 */
+  top: -48px;  /* -198 - (-150)= -48 */
+  width: 72px;
+  height: 72px;
+}
+.fab__bg {
+  position: absolute;
+  left: 0; top: 0;
+  width: 72px; height: 72px;
+  object-fit: cover;
+  filter: drop-shadow(0px 5px 16px rgba(0,0,0,1)) drop-shadow(0 0 0 rgba(0,0,0,1)); /* style_18 */
+}
+.fab__plus {
+  position: absolute;
+  left: 28px; /* -803 - (-831)=28 */
+  top: 28px;  /* -170 - (-198)=28 */
+  width: 16px;
+  height: 16px;
+}
+.fab__plus::before,
+.fab__plus::after {
+  content: "";
+  position: absolute;
+  background: var(--color-ffffff);
+  border-radius: 2px;
+}
+.fab__plus::before { /* Line 1 horizontal */
+  left: 0; top: 8px; width: 16px; height: 5px; /* border width 5 */
+}
+.fab__plus::after {  /* Line 2 vertical */
+  left: 8px; top: 0; width: 5px; height: 16px;
+}
+
+/* Accessibility helpers for focus */
+.category:focus,
+.bottom-nav__item:focus,
+.card__fav:focus {
+  outline: 2px solid var(--theme-primary);
+  outline-offset: 2px;
+}
